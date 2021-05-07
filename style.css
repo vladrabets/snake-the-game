@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #79b11e;
+    border: 2px solid #2f430f;
+    cursor: pointer;
+    transition: all ease 1s;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.main > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    background-color: #5c7731;
+}
+
+.main > div > p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 5vh;
+}
+
+.main button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.main img {
+    margin-top: 5vh;
+}
+
+select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    background-color: #79b11e;
+    outline: none;
+    border: 2px solid #2f430f;
+    width: 80%;
+    margin-top: 10px;
+}
+
+select[selected=selected] {
+    font-weight: 900;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    background-image: url("assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
+canvas {
+    display: block;
+    margin-top: 5vh;
+}
+
+.game > button {
+    width: 200px;
+    height: 50px;
+    margin-top: 5vh;
+    outline: none;
+}

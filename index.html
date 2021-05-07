@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Змейка</title>
+</head>
+<body>
+    <main class="main">
+        <div>
+            <p>Select your preferred snake style:</p>
+            <select name="select">
+                <option selected="selected">Default</option>
+                <option>ABOBA</option>
+                <option>Blue Vibe</option>
+                <option>Orange Gray</option>
+                <option>Gucci</option>
+            </select>
+            <button>Select</button>
+            <img src="assets/snake.jpeg">
+        </div>
+        <section class="game">
+            <canvas id="game" width=608px" height="608px"></canvas>
+            <button>Restart</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
