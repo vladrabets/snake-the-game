@@ -86,3 +86,8 @@ canvas {
     margin-top: 5vh;
     outline: none;
 }
+
+.main > div > .record {
+    margin-top: 2vh;
+    font-size: 30px;
+}

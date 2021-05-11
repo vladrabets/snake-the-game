@@ -30,6 +30,8 @@ function changeStyle() {
 }
 
 document.querySelector('.game > button').addEventListener('click', Restart);
+const record = document.querySelector('.record');
+record.innerHTML += localStorage.getItem('record');
 
 function Restart() {
     clearInterval(game);
@@ -92,6 +94,10 @@ function drawGame() {
 
     if (snakeX === food.x && snakeY === food.y) {
         score++;
+        if (score > localStorage.getItem('record')) {
+            localStorage.setItem('record', score);
+            record.innerHTML = `Record: ${localStorage.getItem('record')}`;
+        }
         food = {
             x: Math.floor(Math.random() * 17 + 1) * box,
             y: Math.floor(Math.random() * 15 + 3) * box,
