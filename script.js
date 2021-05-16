@@ -31,7 +31,7 @@ function changeStyle() {
 
 document.querySelector('.game > button').addEventListener('click', Restart);
 const record = document.querySelector('.record');
-record.innerHTML += localStorage.getItem('record');
+record.innerHTML += localStorage.getItem('record') === null ? 0 : localStorage.getItem('record');
 
 function Restart() {
     clearInterval(game);
@@ -76,15 +76,18 @@ function eatTale(head, arr) {
 }
 
 function drawGame() {
+    //отрисовка фона
     ctx.drawImage(ground, 0, 0);
-
+    //отрисовка пищи
     ctx.drawImage(foodImg, food.x, food.y);
 
+    //отрисовка тела змейки
     for (let i = 0; i < snake.length; i++) {
         ctx.fillStyle = i % 2 === 0 ? color1 : color2;
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
     }
 
+    //отрисовка текущего счета игрока
     ctx.fillStyle = "white";
     ctx.font = "50px Arial";
     ctx.fillText(score, box * 3, box * 1.7);
@@ -92,12 +95,15 @@ function drawGame() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
+    //проверка, съела ли змейка пищу
     if (snakeX === food.x && snakeY === food.y) {
         score++;
+        //отслеживание и фиксация рекордного счета игрока
         if (score > localStorage.getItem('record')) {
             localStorage.setItem('record', score);
             record.innerHTML = `Record: ${localStorage.getItem('record')}`;
         }
+        //задание нового расположения пищи
         food = {
             x: Math.floor(Math.random() * 17 + 1) * box,
             y: Math.floor(Math.random() * 15 + 3) * box,
@@ -106,6 +112,7 @@ function drawGame() {
         snake.pop();
     }
 
+    //отслеживание положения змейки внутри игрового поля
     if (snakeX < box || snakeX > box * 17 ||
         snakeY < box * 3 || snakeY > box * 17) {
         clearInterval(game);
